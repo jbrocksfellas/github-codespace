@@ -1,10 +1,11 @@
-require("dotenv").config()
-const http = require("http")
+require("dotenv").config();
+const http = require("http");
 
-http.createServer((req, res) => {
-    res.json({})
-})
+const server = http.createServer((req, res) => {
+  res.write("hello world");
+  res.end();
+});
 
-http.listen(process.env.PORT).then(res => {
-    console.log("server started running on ", process.env.PORT)
-})
+server.listen(process.env.PORT, () => {
+  console.log("server started running on ", process.env.PORT);
+});
